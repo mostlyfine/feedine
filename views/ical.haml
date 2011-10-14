@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//feedine//NONSGML//
+VERSION:2.0
+X-WR-TIMEZONE:Asia/Tokyo
+= "X-WR-CALNAME:#{feed[:title]}"
+= "X-WR-CALDESC:#{feed[:title]}"
+BEGIN:VTIMEZONE
+TZID:Asia/Tokyo
+BEGIN:STANDARD
+DTSTART:19700101
+TZOFFSETFROM:+0900
+TZOFFSETTO:+0900
+END:STANDARD
+END:VTIMEZONE
+- feed[:entries].each do |entry|
+  BEGIN:VEVENT
+  = "CATEGORIES:#{entry[:title]}"
+  = "DESCRIPTION:#{entry[:description]} #{entry[:link]}"
+  = "DTSTAMP:#{ical_at(entry[:date])}T000000"
+  = "DTSTART:#{ical_at(entry[:date])}"
+  = "DTEND:#{ical_at(entry[:date])}"
+  - if entry[:lat] and entry[:lng]
+    = "LOCATION:#{entry[:lat]},#{entry[:lng]}"
+  = "SUMMARY:#{entry[:title]}"
+  = "UID:#{entry[:title]}-#{entry[:link]}"
+  END:VEVENT
+END:VCALENDAR

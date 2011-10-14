@@ -1,0 +1,13 @@
+%header
+  %h2= feed[:title]
+- feed[:entries].each do |entry|
+  %article
+    %h3= entry[:title]
+    %p= atom_at(entry[:date])
+    %p= turned entry[:description]
+    %p
+      = link_to entry[:link], entry[:link]
+  %hr
+
+%footer
+  = link_to 'back', '/'
