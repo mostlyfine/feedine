@@ -2,6 +2,10 @@
   %h1
     Feedine
 
+%form{:action => '/rss.html'}
+  %input{:type => 'text', :name => 'url', :size => 50}
+  %input{:type => 'submit', :value => 'rss'}
+
 - {abc:'青山ブックセンター', plusone:'ロフトプラスワン'}.each do |key,value|
   %article
     %h2= value
