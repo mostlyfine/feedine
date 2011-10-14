@@ -9,7 +9,7 @@ def plusone
   content.xpath("//body/center/center/center/table/tr/td/table/tr").each do |event|
     title = event.xpath("td[2]/p[@class='content']/font[1]/b").text.to_s.strip
     desc = event.xpath("td[2]").text.to_s.strip
-    time = /START ([0-9]+):([0-9]+)/.match(desc).to_a
+    time = /START\s*([0-9]+):([0-9]+)/i.match(desc).to_a
     t = Time.now
     day = /([0-9]*)/.match(event.xpath("td[1]").text.strip).to_a[1]
     hour = time[1].to_i > 23 ? 0 : time[1]
