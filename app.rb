@@ -58,5 +58,5 @@ get '/' do
 end
 
 get '/:name.:type' do |name, type|
-  send(type, send(name))
+  send(type, send(name, params))
 end

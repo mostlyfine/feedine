@@ -2,7 +2,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-def plusone
+def plusone(params={})
   url = 'http://www.loft-prj.co.jp/PLUSONE/schedule/lpo.cgi'
   content =  Nokogiri::HTML(open(url,'r:Windows-31J').read)
   entries = []

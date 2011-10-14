@@ -2,7 +2,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-def abc
+def abc(params={})
   url = 'http://www.aoyamabc.co.jp/event-date/'
   content =  Nokogiri::HTML(open(url).read)
   entries = []
