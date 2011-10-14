@@ -16,7 +16,7 @@ END:VTIMEZONE
   = "URL:#{entry[:link]}"
   = "CATEGORIES:#{entry[:title]}"
   = "DESCRIPTION:#{entry[:description]} #{entry[:link]}"
-  = "DTSTAMP:#{ical_at(entry[:date])}T000000"
+  = "DTSTAMP:#{ical_at(entry[:date])}"
   = "DTSTART;TZID=Asia/Tokyo:#{ical_at(entry[:date])}"
   = "DTEND;TZID=Asia/Tokyo:#{ical_at(entry[:date])}"
   - if entry[:lat] and entry[:lng]
