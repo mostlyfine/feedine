@@ -20,7 +20,7 @@ helpers do
   end
 
   def ical_at(time=Time.now)
-    time.strftime('%Y%m%d')
+    time.strftime(time.hour + time.min == 0 ? '%Y%m%d' : '%Y%m%d%H%M')
   end
 
   def turned(msg)
