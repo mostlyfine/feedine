@@ -7,5 +7,5 @@
     %h2= value
     %p
     - %w(html atom ics kml json).each do |ext|
-      = link_to image_tag("/images/#{ext}.gif"), "/{key}.#{ext}"
+      = link_to image_tag("/images/#{ext}.gif"), "/#{key}.#{ext}"
     = link_to image_tag("https://www.google.com/calendar/images/calendar_plus_ja.gif"), "https://www.google.com/calendar/render?cid=#{request.base_url}/#{key}.ics"
