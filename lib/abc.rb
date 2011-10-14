@@ -20,5 +20,3 @@ def time_parse(date)
   times.delete_at(0)
   Time.local(*times)
 end
-
-puts abc[:title]
