@@ -2,9 +2,12 @@
   %h1
     Feedine
 
-%form{:action => '/rss.html'}
-  %input{:type => 'text', :name => 'url', :size => 50}
-  %input{:type => 'submit', :value => 'rss'}
+%form#rssform{:action => '/rss.html'}
+  %input#rssurl{:type => 'text', :name => 'url', :size => 50}
+  %input.btn{:type => 'button', :value => 'html'}
+  %input.btn{:type => 'button', :value => 'ics'}
+  %input.btn{:type => 'button', :value => 'kml'}
+  %input.btn{:type => 'button', :value => 'json'}
 
 - {abc:'青山ブックセンター', plusone:'ロフトプラスワン'}.each do |key,value|
   %article

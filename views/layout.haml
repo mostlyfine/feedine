@@ -6,5 +6,12 @@
     %title= 'Feedine ' + (feed[:title] rescue '')
     = javascript_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'
     = stylesheet_link_tag '/stylesheets/main-16px.css', :media => 'all'
+    :javascript
+      $(function() {
+        $('.btn').click(function() {
+          $('#rssform').attr('action', '/rss.' + this.value).submit();
+          return false;
+        });
+      });
   %body
     = yield
